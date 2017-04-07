@@ -1,0 +1,7 @@
+* [PyYAML](http://pyyaml.org/wiki/PyYAML)
+* [Jinja2](http://jinja.pocoo.org/)
+* [CSV](https://docs.python.org/2/library/csv.html)
+* [JSON](https://docs.python.org/3/library/json.html)
+* [Pickle](https://docs.python.org/3/library/pickle.html#module-pickle)
+* [Argparse](https://docs.python.org/2/library/argparse.html)
+* [Matplotlib](https://matplotlib.org/2.0.0/index.html)
