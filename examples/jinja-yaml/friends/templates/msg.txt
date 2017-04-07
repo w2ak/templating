@@ -1,0 +1,1 @@
+Hello, I am {{ server.name }} and my direct peer is {{ friend.name }}.

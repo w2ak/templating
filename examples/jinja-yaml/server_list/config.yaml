@@ -1,0 +1,10 @@
+srv0:
+    server: bigSrv-1
+srv1:
+    server: bigSrv-2
+srv2:
+    server: bigSrv-3
+srv3:
+    server: bigSrv-4
+srv4:
+    server: bigSrv-5

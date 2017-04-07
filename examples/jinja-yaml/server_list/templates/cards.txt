@@ -1,0 +1,3 @@
+# Cards of {{ server.name }} alias {{ name }}
+{% for card in server.cards %}0000:{{ card.pci }} ({{ card.mac }}) {{ card.card }}
+{%endfor%}
