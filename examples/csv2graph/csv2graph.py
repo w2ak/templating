@@ -77,6 +77,21 @@ class Graph:
         pyplot.xlabel(self.xstr)
         return fig
 
+    def figures (self, size=None):
+        n = self.nfigs
+        figs = [list() for _ in range(n)]
+        for zfig, zstr, z in zip(self.yfig, self.ystr, self.y):
+            figs[zfig-1].append((zstr,z))
+        for i in range(n):
+            fig = pyplot.figure(figsize=size)
+            for z in figs[i]:
+                pyplot.plot(self.x, z[1], label=z[0])
+                pyplot.ylabel(z[0], fontsize = 14)
+                pyplot.legend(fontsize = 14)
+            pyplot.xlabel(self.xstr, fontsize = 14)
+            yield fig
+            pyplot.close()
+
     def parse (self, source=sys.stdin):
         with open(source,'r+') if (type(source)==type(str())) else source as stream:
             firstline  = list(map(lambda x: int(x.strip()), stream.readline().strip().split(',')))
@@ -100,11 +115,8 @@ class Graph:
 if __name__=='__main__':
     g = Graph().parse()
     with PdfPages(sys.argv[1]) as pdf:
-        pdf.savefig(g.splitfigure(size=(8,3)))
-        pyplot.close()
-
-        pdf.savefig(g.figure())
-        pyplot.close()
+        for fig in g.figures(size=(8.3,5)):
+            pdf.savefig(fig)
 
         d = pdf.infodict()
         print(d)
